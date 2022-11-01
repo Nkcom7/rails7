@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Costs managements</h1>
+
+<div id="costs_managements">
+  <% @costs_managements.each do |costs_management| %>
+    <%= render costs_management %>
+    <p>
+      <%= link_to "Show this costs management", costs_management %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New costs management", new_costs_management_path %>

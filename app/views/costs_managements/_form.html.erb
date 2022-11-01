@@ -1,0 +1,21 @@
+<%= form_with(model: costs_management) do |form| %>
+  <% if costs_management.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(costs_management.errors.count, "error") %> prohibited this costs_management from being saved:</h2>
+
+      <ul>
+        <% costs_management.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.file_field :cost_file %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
