@@ -1,0 +1,38 @@
+<turbo-frame id="graph">
+  <div data-controller="chartkick">
+    <div data-chartkick-target="chartkick"></div>
+    <h2>LOG</h2>
+    <!--- 非同期で日/週/月単位でのデータ処理を行う--->
+    <div class="table-responsive">
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% costs.each do |cost| %>
+            <%= render "list",
+              cost: cost,
+              graph_type: graph_type
+              
+              # cost: 
+              #   if params[:graph_id] === "day"
+              #     MoneyManagement.find_by(cost_id: cost.id).price
+              #   elsif params[:graph_id] === "week"
+              #   cost.date
+              #     MoneyManagement.where(cost_id: cost.id).price
+              #   else
+              #     MoneyManagement.find_by(cost_id: cost.id).price
+              #   end
+              # 1,コントローラでMoneyManagement.allで取得した後、graph.html.erbにてデータ加工を実施。
+              # 2,コントローラでidとdateのみの取得。(あくまでdateの情報が欲しいだけだから)その後、idを用いて要する情報の取得を行う。
+              # 3,modelの作り直し。idとdateのモデル。それに紐づくデータの内容の格納になるか。。
+              %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+</turbo-frame>

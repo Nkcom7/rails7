@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
   resources :costs_managements
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  post '/change_graph', to: 'costs_managements#change_graph'
 end
